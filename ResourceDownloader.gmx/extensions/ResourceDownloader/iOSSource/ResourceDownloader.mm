@@ -40,9 +40,10 @@ extern void CreateAsynEventWithDSMap(int dsmapindex, int event_index);
         [data writeToFile:filePath atomically:YES];
     }
     
-    int dsMapIndex = CreateDsMap(2,
+    int dsMapIndex = CreateDsMap(3,
                                  "type", 0.0, "__RESOURCE_READY",
-                                 "filename", 0.0, filename
+                                 "filename", 0.0, filename,
+                                 "path", 0.0, filePath
                                  );
     
     CreateAsynEventWithDSMap(dsMapIndex, EVENT_OTHER_SOCIAL);

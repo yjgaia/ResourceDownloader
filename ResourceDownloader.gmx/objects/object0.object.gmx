@@ -25,8 +25,103 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-rd_init('__test', 'https://github.com/Hanul/ResourceDownloader/blob/master/');
+            <string>/// init;
+
+//rd_init('__test', 'https://github.com/Hanul/ResourceDownloader/blob/master/');
+
+//rd_download('pepe.png');
+
+//pepe_sprite = -1;
+
+pepe_sprite = sprite_add('pepe.png', 1, false, true, 0, 0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// clear pepe
+
+if (pepe_sprite != -1) {
+    sprite_delete(pepe_sprite);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="70">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// 리소스 파일 준비 완료
+
+if (ds_map_find_value(async_load, 'type') == '__RESOURCE_READY') {
+    var filename = ds_map_find_value(async_load, 'filename');
+    var path = ds_map_find_value(async_load, 'path');
+    
+    pepe_sprite = sprite_add(path, 1, false, true, 0, 0);
+    
+    show_debug_message(path);
+    show_debug_message(working_directory);
+    show_debug_message(pepe_sprite);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw pepe
+
+if (pepe_sprite != -1) {
+    draw_sprite(pepe_sprite, 0, 0, 0);
+}
 </string>
           </argument>
         </arguments>
